@@ -1,10 +1,17 @@
-import { useState } from 'react'
 import './App.css'
+import Header from './Header';
+import MovieList from './MovieList';
+import Footer from './Footer';
 
-const App = () => {
-  <div className="App">
-    
-  </div>
+function App() {
+  return (
+    <>
+      <Header/>
+      <MovieList/>
+      <Footer/>
+    </>
+  );
 }
 
-export default App
+
+export default App;
