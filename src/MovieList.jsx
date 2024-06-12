@@ -19,8 +19,7 @@ function MovieList() {
     }, []);
 
     const showMoreMovies = () => {
-        setMoviePage(moviePage + 10);
-
+        setMoviePage(moviePage + 5);
     };
 
     // console.log("movieData", movieData);
