@@ -1,9 +1,13 @@
 .movie-card {
-  width: 100%;
-  max-width: 1000px;
-  margin: 20px auto;width: 100%;
-  max-width: 1000px;
-  margin: 20px auto;
+  /* width: 100px; */
+  /* max-width: 218px; */
+  padding: 20px;
+  /* margin: 10px 0; */
+  height: 30%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
 
   /* border-radius: 5px;
   height: 30%;
