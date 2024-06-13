@@ -1,13 +1,11 @@
 import "./Header.css";
-import SearchBar from './SearchBar';
 import Sort from './Sort'
 
 function Header() {
   return (
     <div className="header-container">
-      <p>Flixster</p>
+      <h1>Flixster</h1>
       <div className="button-container">
-        <SearchBar/>
         <Sort/>
       </div>
     </div>

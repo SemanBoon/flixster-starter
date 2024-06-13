@@ -4,14 +4,14 @@
     text-align: right;
     font-size: 1.0rem;
     height: 50px;
-    /* position: absolute;
+    /* position: absolute; */
     bottom: 0;
     left: 0;
-    right: 0; */
-}
+    right: 0;
 
-.container p{
+    .container p {
     margin: 0px;
     padding: 5px;
     color: black;
+    }
 }

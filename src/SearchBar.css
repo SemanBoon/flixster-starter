@@ -9,7 +9,7 @@
 
   .search-input {
     padding: 10px;
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
     border-radius: 4px;
     flex-grow: 1;
     outline: none;
@@ -24,7 +24,7 @@
 
   .search-button {
     padding: 10px 15px;
-    color: white;
+    color: rgb(4, 0, 0);
     border: none;
     border-radius: 4px;
     cursor: pointer;

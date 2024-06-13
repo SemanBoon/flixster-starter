@@ -1,24 +1,17 @@
+//in search.js
 import React, {useState} from 'react';
 import './SearchBar.css'
 
-function SearchBar(){
+function SearchBar({onSearch}){
     const [searchTerm, setSearchTerm] = useState('');
 
-    const fetchData = async (value) => {
-        const apiKey = import.meta.env.VITE_APP_API_KEY;
-        const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&page=${moviePage}`);
-        const data = await response.json();
-        const resuults = data.filter[(user) => {
-            return value && user && user.name && user.name.toLowerCase().includes(value);
-        }];
-        console.log(resuults);
-
+    const handleChange = (e) => {
+        setSearchTerm(e.target.value);
+        // onSearch(searchTerm);
     }
 
-
-    const handleChange = (value) => {
-        setSearchTerm(value);
-        fetchData(value);
+    const handleSearch = () => {
+        onSearch(searchTerm);
     }
 
     return(
@@ -26,9 +19,9 @@ function SearchBar(){
             <input
             placeholder='Type to search...'
             value = {searchTerm}
-            onChange={(e) => handleChange(e.target.value)}
+            onChange={handleChange}
             />
-            <button className="search-button">Search</button>
+            <button className="search-button" onClick={handleSearch}>Search</button>
         </div>
     )
 }

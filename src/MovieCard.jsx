@@ -3,8 +3,7 @@ import './MovieCard.css';
 function MovieCard(props) {
     return(
         <div className="movie-card">
-            {/* add alt tag to img element */}
-            <img src={props.movieImage}/>
+            <img src={props.movieImage} alt="Movie Cover"/>
             <p>{props.movieTitle}</p>
             <p>{props.movieRating}</p>
         </div>
