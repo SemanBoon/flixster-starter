@@ -3,13 +3,12 @@ import React from "react";
 import "./MovieList.css";
 import MovieCard from "./MovieCard";
 
-function MovieList({ movieData, showMoreMovies, moviePage }) {
-    console.log("movieData", movieData);
+function MovieList({movieData, showMoreMovies, onMovieClick}) {
     return (
     <>
       <div id="movie-list">
         {movieData.map((movie, idx) => (
-          <MovieCard
+          <MovieCard onClick={onMovieClick}
             key={idx}
             movieImage={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
             movieTitle={movie.title}
