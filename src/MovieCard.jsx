@@ -1,11 +1,11 @@
 import './MovieCard.css';
 
-function MovieCard(props) {
+function MovieCard({movie, onClick}) {
     return(
         <div className="movie-card" onClick={() => onClick(movie)}>
             <img src={props.movieImage} alt="Movie Cover"/>
-            <p>{props.movieTitle}</p>
-            <p>{props.movieRating}</p>
+            <p>{movie.movieTitle}</p>
+            <p>{movie.movieRating}</p>
         </div>
     )
 }
