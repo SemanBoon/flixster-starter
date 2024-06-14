@@ -19,3 +19,5 @@ function Modal({ movie, onClose }) {
         </div>
   )
 };
+
+export default Modal;
