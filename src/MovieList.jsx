@@ -1,25 +1,36 @@
 
-import React from "react";
+import React, { useState } from "react";
 import "./MovieList.css";
 import MovieCard from "./MovieCard";
+import Modal from "./Modal";
 
-function MovieList({ movieData, showMoreMovies, moviePage }) {
-    console.log("movieData", movieData);
+function MovieList({ movieData, showMoreMovies}) {
+    const [selectedMovie, setSelectedMovie] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
     <>
       <div id="movie-list">
         {movieData.map((movie, idx) => (
           <MovieCard
-            key={idx}
-            movieImage={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            movieTitle={movie.title}
-            movieRating={movie.vote_average}
-          />
+                onClick={(movie) => {
+                    setSelectedMovie(movie);
+                    setIsModalOpen(true);
+                }}
+
+                //TODO: find out why some movie covers are not showing up
+                key={idx}
+                movieImage={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                movieTitle={movie.title}
+                movieRating={movie.vote_average}
+
+            />
         ))}
       </div>
       {movieData && (
         <button id="Load Button" onClick={showMoreMovies}>Load More</button>
       )}
+      {isModalOpen && selectedMovie && <Modal movie={selectedMovie} onClose={() => setIsModalOpen(false)} />}
     </>
   );
 }

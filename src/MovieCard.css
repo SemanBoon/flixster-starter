@@ -7,8 +7,9 @@
 .movie-card {
   height: 50%;
   width: 200px;
-  padding: 5px;
+  padding: 0px;
   margin: 5px;
+  padding: 5px;
   cursor: pointer;
   transition: transform 0.1s;
   text-align: center;

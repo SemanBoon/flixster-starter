@@ -1,0 +1,24 @@
+/* .now-playing-button {
+  margin: 20px 0;
+  /* padding: 10px 20px; */
+  /* background-color: #007bff; */
+  /* color: rgb(12, 11, 11);
+  border: none;
+  cursor: pointer;
+  font-size: 15px; */
+
+.now-playing-button:hover {
+  background-color: rgb(178, 170, 168);
+}
+
+
+.now-playing-button {
+    color: rgb(4, 0, 0);
+    padding: 2px;
+    border: none;
+    height: 50px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: background-color 0.2s, box-shadow 0.2s;
+  }

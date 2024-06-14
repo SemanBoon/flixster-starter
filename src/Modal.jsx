@@ -1,27 +1,22 @@
-// import React, { useEffect } from 'react';
-// import '/.Modal.css';
+import React from 'react';
 
-// const Modal = ({selectedMovie}) => {
-//     useEffect(() => {
-//         return () => {
-//             setisModalOpen(false);
-//         };
-//     }, []);
-//   return (
-//     <>
-//         <div id="my-modal" class="modal-overlay">
-//             <div class="modal-content">
-//                 <h5>{selectedMovie.title}</h5>
-//                 <img src={selectedMovie.poster_path} alt={selectedMovie.title} />
-//                 <p>{selectedMovie.overview}</p>
-//                 <p>Release Date: {selectedMovie.release_date}</p>
-//                 <p>Genre: {selectedMovie.genres.map((genre) => genre.name).join(", ")}</p>
-//             </div>
+function Modal({ movie, onClose }) {
+    if (!movie) return null;
+  return(
+        <div className="modal-overlay">
+            <div className="modal-content">
+                <h5>Hello{movie.title}</h5>
+                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                <p>{movie.overview}</p>
+                <p>Release Date: {movie.release_date}</p>
+                {/* <p><strong>Genre:</strong> {movie.genre_ids.join(', ')}</p> */}
+                {/* /* <p><strong>Genre: </strong>{movie.genres.map((genre) => genre.name).join(", ")}</p>  */}
+            </div>
+            <button>
+                <span className = "close-button" onClick={onClose}>close</span>
+            </button>
+        </div>
+  )
+};
 
-//             <button>
-//                 <span class = "close-button">close</span>
-//             </button>
-//         </div>
-//     </>
-//   )
-// };
+export default Modal;
