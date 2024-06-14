@@ -4,7 +4,7 @@ import Header from "./Header";
 import MovieList from "./MovieList";
 import Footer from "./Footer";
 import SearchBar from "./SearchBar";
-// import Modal from "./Modal";
+import Modal from "./Modal";
 
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
   };
 
   const showMoreMovies = async () => {
-    console.log("show more movies. page number: " + moviePage);
+    // console.log("show more movies. page number: " + moviePage);
     setMoviePage(moviePage + 1);
     await fetchData(moviePage);
   };
@@ -41,6 +41,16 @@ function App() {
     setMovieData(data.results);
   };
 
+    const handleMovieClick = (movie) => {
+    setSelectedMovie(movie);
+    setIsModalOpen(true);
+  };
+
+    const closeModal = () => {
+      setIsModalOpen(false);
+      setSelectedMovie(null);
+  };
+    
     useEffect(() => {
       showMoreMovies();
     }, []);
@@ -54,13 +64,20 @@ function App() {
     searchData();
   }, [searchQuery]);
 
+  // useEffect(() => {
+  //   if (searchQuery) {
+  //     searchData(searchQuery);
+  //   }
+  // }, [searchQuery]);
+
 
   return (
     <div className="App">
       <Header />
       <SearchBar onSearch={searchData} />
-      <MovieList movieData={movieData} showMoreMovies={showMoreMovies} />
+      <MovieList movieData={movieData} showMoreMovies={showMoreMovies} onMovieClick={handleMovieClick}/>
       <Footer />
+      {isModalOpen && <Modal movie={selectedMovie} onClose={closeModal} />}
     </div>
   );
 }
