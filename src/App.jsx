@@ -6,13 +6,14 @@ import SearchBar from "./SearchBar";
 import Sort from "./Sort";
 import Modal from "./Modal";
 import NowPlaying from "./NowPlaying";
+import "./App.css";
 
 
 function App() {
   const [movieData, setMovieData] = useState([]);
   const [moviePage, setMoviePage] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [selectedMovie, setSelectedMovie] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [sortOption, setSortOption] = useState("");
   const apiKey = import.meta.env.VITE_APP_API_KEY;
@@ -31,7 +32,6 @@ function App() {
   };
 
   const showMoreMovies = async () => {
-    console.log("show more movies. page number: " + moviePage);
     setMoviePage(moviePage + 1);
     await fetchData(moviePage);
   };
@@ -44,13 +44,15 @@ function App() {
       `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}&page=1`
     );
     const data = await response.json();
-    console.log("data from search", data);
     setMovieData(data.results);
   };
+
 
   const handleMovieClick = (movie) => {
     setSelectedMovie(movie);
     setIsModalOpen(true);
+    document.body.classList.add("modal-open");
+    document.body.style.overflow = 'hidden';
   };
 
   const handleSortChange = (option) => {
@@ -60,6 +62,8 @@ function App() {
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedMovie(null);
+    document.body.classList.remove("modal-open");
+    document.body.style.overflow = 'auto';
   };
 
   const handleNowPlayingClick = () => {
@@ -108,17 +112,17 @@ function App() {
   return (
     <div className="App">
       <div className="header-container">
-        <h1>Flixster</h1>
+        <h1>🎥Flixster🎥</h1>
       </div>
       <div className = "buttons">
-          <SearchBar onSearch={searchData} />
-          <Sort onSortChange={handleSortChange} />
+          <SearchBar onSearch={searchData}/>
           <NowPlaying onNowPlayingClick={handleNowPlayingClick} />
+          <Sort onSortChange={handleSortChange} />
       </div>
-
-
-      <MovieList movieData={movieData} showMoreMovies={showMoreMovies} onMovieClick={handleMovieClick}/>
+      <Modal movie={selectedMovie} onClose={closeModal} movieId={selectedMovie ? selectedMovie.id : null} isOpen={isModalOpen}/>
+      <MovieList movieData={movieData} showMoreMovies={showMoreMovies} onMovieClick={handleMovieClick} setSelectedMovie={setSelectedMovie}/>
       <Footer />
+
     </div>
   );
 }

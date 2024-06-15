@@ -17,7 +17,5 @@ function Sort({ onSortChange }) {
     );
 }
 
-//TODO add alphabetic sorting (a-z)(z-a)
-//about and contact
 
 export default Sort;

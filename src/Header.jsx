@@ -7,7 +7,7 @@ function Header() {
   return (
     <>
       <div className="header-container">
-        <h1>Flixster</h1>
+        <h1>🎥Flixster🎥</h1>
       </div>
       <div className="buttons">
         <div className="search-bar">
@@ -24,8 +24,4 @@ function Header() {
   )
 }
 
-
-{/* <SearchBar onSearch={searchData} />
-            <Sort onSortChange={handleSortChange} />
-            <NowPlaying onClick={handleNowPlayingClick} /> */}
 export default Header;
