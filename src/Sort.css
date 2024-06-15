@@ -3,7 +3,29 @@
     float: left;
   }
 
+<<<<<<< HEAD
   .sort-dropdown select {
     padding: 5px;
     font-size: 16px;
   }
+=======
+.sort-button:active {
+    background-color: #e15930;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* SortDropdown.css */
+.sort-dropdown {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.sort-dropdown label {
+  margin-right: 10px;
+}
+
+.sort-dropdown select {
+  padding: 5px;
+  font-size: 16px;
+}
+>>>>>>> 5e24a6a10b67e02e3ea1a95ba8a27bbb67edb044
