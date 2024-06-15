@@ -66,7 +66,7 @@ function App() {
       setIsModalOpen(false);
       setSelectedMovie(null);
   };
-    
+
     useEffect(() => {
       showMoreMovies();
     }, []);
