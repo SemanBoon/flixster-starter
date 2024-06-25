@@ -16,7 +16,7 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [sortOption, setSortOption] = useState("");
-  const apiKey = import.meta.env.VITE_APP_API_KEY;bkentdjjdcjnccvrtjdjlhcjlkfnidluhr
+  const apiKey = import.meta.env.VITE_APP_API_KEY;
 
   const fetchData = async (pageNumber) => {
     const response = await fetch(
