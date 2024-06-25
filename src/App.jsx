@@ -3,14 +3,10 @@ import Header from "./Header";
 import MovieList from "./MovieList";
 import Footer from "./Footer";
 import SearchBar from "./SearchBar";
-<<<<<<< HEAD
 import Sort from "./Sort";
 import Modal from "./Modal";
 import NowPlaying from "./NowPlaying";
 import "./App.css";
-=======
-import Modal from "./Modal";
->>>>>>> 5e24a6a10b67e02e3ea1a95ba8a27bbb67edb044
 
 
 function App() {
@@ -20,7 +16,7 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [sortOption, setSortOption] = useState("");
-  const apiKey = import.meta.env.VITE_APP_API_KEY;
+  const apiKey = import.meta.env.VITE_APP_API_KEY;bkentdjjdcjnccvrtjdjlhcjlkfnidluhr
 
   const fetchData = async (pageNumber) => {
     const response = await fetch(
@@ -36,10 +32,6 @@ function App() {
   };
 
   const showMoreMovies = async () => {
-<<<<<<< HEAD
-=======
-    // console.log("show more movies. page number: " + moviePage);
->>>>>>> 5e24a6a10b67e02e3ea1a95ba8a27bbb67edb044
     setMoviePage(moviePage + 1);
     await fetchData(moviePage);
   };
@@ -55,22 +47,6 @@ function App() {
     setMovieData(data.results);
   };
 
-<<<<<<< HEAD
-=======
-    const handleMovieClick = (movie) => {
-    setSelectedMovie(movie);
-    setIsModalOpen(true);
-  };
-
-    const closeModal = () => {
-      setIsModalOpen(false);
-      setSelectedMovie(null);
-  };
-
-    useEffect(() => {
-      showMoreMovies();
-    }, []);
->>>>>>> 5e24a6a10b67e02e3ea1a95ba8a27bbb67edb044
 
   const handleMovieClick = (movie) => {
     setSelectedMovie(movie);
@@ -105,7 +81,6 @@ function App() {
     }
   }, [searchQuery]);
 
-<<<<<<< HEAD
   useEffect(() => {
     fetchData(moviePage);
   }, [moviePage]);
@@ -148,22 +123,6 @@ function App() {
       <MovieList movieData={movieData} showMoreMovies={showMoreMovies} onMovieClick={handleMovieClick} setSelectedMovie={setSelectedMovie}/>
       <Footer />
 
-=======
-  // useEffect(() => {
-  //   if (searchQuery) {
-  //     searchData(searchQuery);
-  //   }
-  // }, [searchQuery]);
-
-
-  return (
-    <div className="App">
-      <Header />
-      <SearchBar onSearch={searchData} />
-      <MovieList movieData={movieData} showMoreMovies={showMoreMovies} onMovieClick={handleMovieClick}/>
-      <Footer />
-      {isModalOpen && <Modal movie={selectedMovie} onClose={closeModal} />}
->>>>>>> 5e24a6a10b67e02e3ea1a95ba8a27bbb67edb044
     </div>
   );
 }
